@@ -71,3 +71,23 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## DB 更新
+
+先の dist を更新するために npm run build をする（npm run start）でもいい。
+
+```
+$ docker compose exec api npx typeorm-ts-node-commonjs migration:generate src/migration/〇〇Migration -d src/data-source.ts
+```
+
+マイグレーションファイルを作成する。
+
+```
+$ docker compose exec api npx typeorm-ts-node-commonjs migration:generate src/migration/〇〇Migration -d src/data-source.ts
+```
+
+マイグレーションファイルを実行する。
+
+```
+$ docker compose exec api npx typeorm-ts-node-commonjs migration:run -d src/data-source.ts
+```
